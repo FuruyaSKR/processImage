@@ -4,7 +4,7 @@ import numpy as np
 import os
 import pandas as pd
 
-def generate_rgb_image_histogram(image_path):
+def generate_equalize_histogram(image_path):
     img = cv2.imread(image_path, 0)
     equ = cv2.equalizeHist(img)
 
@@ -36,4 +36,4 @@ def remove_files(folder_path):
 
 if __name__ == "__main__":
     remove_files("PBM/output/")
-    generate_rgb_image_histogram("PBM/assets/Fig0316(2)(2nd_from_top).tif")
+    generate_equalize_histogram("PBM/assets/Fig0316(2)(2nd_from_top).tif")
