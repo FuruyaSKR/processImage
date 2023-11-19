@@ -4,7 +4,7 @@ import cv2
 from PIL import Image
 
 
-def subtract_images(image_path):
+def bit_plane_slicing(image_path):
     img = cv2.imread(image_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -28,4 +28,4 @@ def remove_files(folder_path):
 
 if __name__ == "__main__":
     remove_files("PBM/output/")
-    subtract_images("PBM/assets/Fig0314(a)(100-dollars).tif")
+    bit_plane_slicing("PBM/assets/Fig0314(a)(100-dollars).tif")
