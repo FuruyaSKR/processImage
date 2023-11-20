@@ -2,20 +2,22 @@ import matplotlib.pyplot as plt
 import os
 import cv2
 
-def histogram_equalization(image_path):
+def histogram_enhancement(image_path):
     img = cv2.imread(image_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
     r, g, b = cv2.split(img)
 
-    r_eq = cv2.equalizeHist(r)
-    g_eq = cv2.equalizeHist(g)
-    b_eq = cv2.equalizeHist(b)
+    r = cv2.equalizeHist(r)
+    g = cv2.equalizeHist(g)
+    b = cv2.equalizeHist(b)
 
-    img_eq = cv2.merge((r_eq, g_eq, b_eq))
-    channels = [r_eq, g_eq, b_eq]
-    colors=['red', 'blue', 'green']
-    
-    cv2.imwrite('PBM/output/Fig1.ppm', img_eq)
+    img = cv2.merge((r, g, b))
+
+    cv2.imwrite('PBM/output/Fig1.ppm', img)
     fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+    channels = [r, g, b]
+    colors=['red', 'blue', 'green']
 
     for i, channel in enumerate(channels):
         hist = cv2.calcHist([channel], [0], None, [256], [0, 256])
@@ -39,5 +41,5 @@ def remove_files(folder_path):
 
 if __name__ == "__main__":
     remove_files("PBM/output/")
-    histogram_equalization("PBM/assets/Fig1.ppm")
+    histogram_enhancement("PBM/assets/Fig1.ppm")
 

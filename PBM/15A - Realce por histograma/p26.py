@@ -37,5 +37,4 @@ def remove_files(folder_path):
 if __name__ == "__main__":
     remove_files("PBM/output/")
     highlighting_by_histogram("PBM/assets/Fig0316(1)(top_left).tif")
-    highlighting_by_histogram("PBM/assets/Fig0316(1)(top_left).tif")
 

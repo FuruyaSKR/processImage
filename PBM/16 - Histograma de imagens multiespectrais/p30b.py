@@ -14,7 +14,7 @@ def histogram_equalization(image_path):
     channels = [r_eq, g_eq, b_eq]
     colors=['red', 'blue', 'green']
     
-    cv2.imwrite('PBM/output/Fig1.ppm', img_eq)
+    cv2.imwrite('PBM/output/Fig2.ppm', img_eq)
     fig, axs = plt.subplots(1, 3, figsize=(15, 5))
 
     for i, channel in enumerate(channels):
@@ -39,5 +39,5 @@ def remove_files(folder_path):
 
 if __name__ == "__main__":
     remove_files("PBM/output/")
-    histogram_equalization("PBM/assets/Fig1.ppm")
+    histogram_equalization("PBM/assets/Fig2.ppm")
 
